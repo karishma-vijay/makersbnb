@@ -8,6 +8,7 @@ CREATE TABLE listings
     (id SERIAL PRIMARY KEY,
     name text,
     description text,
+    price decimal(15,2),
     date_from DATE,
     date_to DATE,
     user_id int,

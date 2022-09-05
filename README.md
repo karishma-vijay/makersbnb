@@ -1,5 +1,6 @@
 # makersbnb
 **Headline specifications**
+
 Any signed-up user can list a new space.
 Users can list multiple spaces.
 Users should be able to name their space, provide a short description of the space, and a price per night.
@@ -10,6 +11,7 @@ Until a user has confirmed a booking request, that space can still be booked for
 
 
 **Nice-to-haves**
+
 Users should receive an email whenever one of the following happens:
 They sign up
 They create a space

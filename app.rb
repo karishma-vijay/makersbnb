@@ -7,4 +7,8 @@ class Application < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
+
+  get "/view-spaces" do
+    return "Your available spaces"
+  end
 end

@@ -9,6 +9,7 @@ class Application < Sinatra::Base
   end
 
   get "/view-spaces" do
-    return "Your available spaces"
+    erb(:view_spaces,:layout => :layout)
   end
 end
+

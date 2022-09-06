@@ -37,6 +37,29 @@ describe BookingRepository do
         expect(result.check_in).to eq '2022-09-15'
         expect(result.check_out).to eq '2022-09-22'
     end
-    
+
+    it 'shows all open requests for a property' do
+
+        repo = BookingRepository.new
+
+        result = repo.not_approved_by_listing_id(3)
+
+        expect(result.length).to eq 1
+        expect(result[0].user_id).to eq 4
+        expect(result[0].check_in).to eq '2022-06-15'
+        expect(result[0].check_out).to eq '2022-06-22'
+
+    end
+
+    it 'show all approved requests for property' do
+
+        repo = BookingRepository.new
+        result = repo.approved_by_listing(2)
+
+        expect(result.length).to eq 1
+        expect(result[0].user_id).to eq 3
+        expect(result[0].check_in).to eq '2022-07-15'
+        expect(result[0].check_out).to eq '2022-07-22'
+    end
 end
   

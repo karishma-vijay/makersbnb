@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative 'lib/listings_repository'
 require_relative 'lib/database_connection'
-DatabaseConnection.connect('makersbnb_test')
+DatabaseConnection.connect('makersbnb')
 
 class Application < Sinatra::Base
   # This allows the app code to refresh

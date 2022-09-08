@@ -1,0 +1,8 @@
+<h1>Your available spaces</h1>
+
+<% @listings.each do |listing|%>
+     <!-- # this atag syntax is wrong - the root will always got to get/bnb1 -->
+      <a href="/bnb1"><%= listing.name %></a>
+      <br>
+      <br>
+<% end %>

@@ -1,8 +1,8 @@
-CREATE TABLE users(
-id SERIAL PRIMARY KEY,
-email text,
-password text)
-; 
+-- CREATE TABLE users(
+-- id SERIAL PRIMARY KEY,
+-- email text,
+-- password text)
+-- ; 
 
 CREATE TABLE listings
     (id SERIAL PRIMARY KEY,

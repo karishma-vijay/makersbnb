@@ -3,7 +3,7 @@ require 'sinatra/reloader'
 require_relative 'lib/listings_repository'
 require_relative 'lib/user_repository'
 require_relative 'lib/database_connection'
-DatabaseConnection.connect('makersbnb')
+DatabaseConnection.connect
 
 class Application < Sinatra::Base
   # This allows the app code to refresh
@@ -17,6 +17,24 @@ class Application < Sinatra::Base
     @listings = repo.all
     erb(:view_spaces)
     # binding.irb
+  end
+
+  get '/view_spaces/new' do
+    return erb(:new_listing)
+  end
+
+  post '/view_spaces' do
+    repo = ListingsRepository.new
+    new_listing = Listings.new
+    new_listing.name = params[:name]
+    new_listing.description = params[:description]
+    new_listing.price = params[:price]
+    new_listing.date_from = params[:date_from]
+    new_listing.date_to = params[:date_to]
+
+    repo.create(new_listing)
+  
+    return 'Your new listing is now live!'
   end
 
   get "/new_user" do

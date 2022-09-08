@@ -1,0 +1,7 @@
+<h1>Log in to makersbnb</h1>
+<h2><%= 'Log in failed, please try again' if @login_failed %></h2>
+<form action="/log_in" method = "POST">
+<p>email: <input type="email" name="email"></p>
+<p>password: <input type="password" name="password"></p>
+<p><input type="submit" value ="submit"></p>
+</form>

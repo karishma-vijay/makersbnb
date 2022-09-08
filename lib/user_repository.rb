@@ -14,7 +14,7 @@ class UserRepository
             return 'email already used'
         end
     end
-
+ 
     def login(input_user)
         email = input_user.email
         db_user = get_user(email)
@@ -50,5 +50,9 @@ class UserRepository
             user.password = db_user[0]['password']
             return user
         end
+    end
+
+    def test
+        p 'test this class works'
     end
 end

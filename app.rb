@@ -24,27 +24,42 @@ class Application < Sinatra::Base
   end
 
   post "/new_user" do
-    u_repo = UserRepository.new
+    user_repo = UserRepository.new
     new_user = User.new
     new_user.email = params[:email]
     new_user.password = params[:password]
 
-    repo = ListingsRepository.new 
-    @listings = repo.all
+    listings_repo = ListingsRepository.new 
+    @listings = listings_repo.all
 
-    if u_repo.create(new_user) == 'created'
-    #   return erb(:view_spaces)
-    # else
+    if user_repo.create(new_user) == 'created'
       return erb(:view_spaces)
     else
-      return 'error'
+      return user_repo.create(new_user)
     end
-
-
   end
 
-  get "/bnb1" do
-    erb(:bnb1)
+  get "/log_in" do
+    return erb(:log_in)
+  end
+  
+  post "/log_in" do
+    user_repo = UserRepository.new
+    log_in = User.new
+    log_in.email = params[:email]
+    log_in.password = params[:password]
+
+    @login_failed = nil
+
+    listings_repo = ListingsRepository.new 
+    @listings = listings_repo.all
+
+    if user_repo.login(log_in) == 'Logged in successfully'
+      return erb(:view_spaces)
+    else
+      @login_failed = true
+      return erb(:log_in)
+    end
   end
 end
 

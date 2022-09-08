@@ -73,6 +73,7 @@ class Application < Sinatra::Base
     @listings = listings_repo.all
 
     if user_repo.login(log_in) == 'Logged in successfully'
+      @login_failed = nil
       return erb(:view_spaces)
     else
       @login_failed = true

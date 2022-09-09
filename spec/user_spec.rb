@@ -3,8 +3,8 @@ require 'user_repository'
 require 'spec_helper'
 
 def reset_users_table
-    seed_sql = File.read('spec/seeds_user.sql')
-    connection = PG.connect({ host: '127.0.0.1', dbname: 'makersbnb' })
+    seed_sql = File.read('spec/seeds.sql')
+    connection = PG.connect({ host: '127.0.0.1', dbname: 'makersbnb_test' })
     connection.exec(seed_sql)
 end
 
@@ -46,7 +46,7 @@ describe UserRepository do
         new_user = User.new
         new_user.email = 'michael@here'
         new_user.password = 'password1'
-        expect(repo.login(new_user)).to eq('Logged in succesfully')
+        expect(repo.login(new_user)).to eq('Logged in successfully')
     end
 
     it 'checks login no email' do
